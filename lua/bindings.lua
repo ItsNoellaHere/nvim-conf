@@ -1,0 +1,37 @@
+function map(mode, shortcut, command, silent)
+  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = silent })
+end
+
+function nmap(shortcut, command, silent)
+  map('n', shortcut, command, silent)
+end
+
+function imap(shortcut, command, silent)
+  map('i', shortcut, command, silent)
+end
+
+-- Newtab Binds
+nmap('<leader>T', ':tabnew<cr>:term<cr>i', true)
+
+-- Formatter binds
+nmap('<A-f>', ':FormatLock<cr>', true)
+imap('<A-f>', ':FormatLock<cr>', true)
+nmap('<A-F>', ':FormatWriteLock<cr>', true)
+imap('<A-F>', ':FormatWriteLock<cr>', true)
+-- nmap('<C-f>', ':Format!&filetype', true)
+
+-- CHADtree binds
+nmap("<leader>v", ":CHADopen<cr>", false)
+
+-- Telescope binds
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Telescope File Browser binds
+nmap('<leader>fb', ":Telescope file_browser<CR>", false)
+
+-- Telescope Project binds
+nmap('<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", true)
