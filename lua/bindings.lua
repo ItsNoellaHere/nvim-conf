@@ -18,10 +18,9 @@ nmap('<A-f>', ':FormatLock<cr>', true)
 imap('<A-f>', ':FormatLock<cr>', true)
 nmap('<A-F>', ':FormatWriteLock<cr>', true)
 imap('<A-F>', ':FormatWriteLock<cr>', true)
--- nmap('<C-f>', ':Format!&filetype', true)
 
 -- CHADtree binds
-nmap("<leader>v", ":CHADopen<cr>", false)
+nmap("<leader>v", ":CHADopen<cr>", true)
 
 -- Undotreee binds
 vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true })
@@ -30,8 +29,7 @@ vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, s
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>ft', builtin.buffers, {})
 
 -- Telescope File Browser binds
 nmap('<leader>fb', ":Telescope file_browser<CR>", false)

@@ -26,15 +26,13 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- vim plugins
-	-- use("preservim/nerdtree")
-	use("ap/vim-css-color")
 	use("tpope/vim-commentary")
 	use("ryanoasis/vim-devicons")
-	use("terryma/vim-multiple-cursors")
 	use("mhinz/vim-signify")
-    use("jreybert/vimagit")
+	use("jreybert/vimagit")
 
 	-- nvim plugins
+	use("NvChad/nvim-colorizer.lua")
 	use("nvim-lualine/lualine.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("lewis6991/gitsigns.nvim")
@@ -62,8 +60,10 @@ return require("packer").startup(function(use)
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-file-browser.nvim")
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "make",
+	})
 	use("nvim-telescope/telescope-project.nvim")
 
 	-- coq
