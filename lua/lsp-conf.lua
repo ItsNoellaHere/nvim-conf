@@ -15,9 +15,9 @@ lsp.lua_ls.setup(coq.lsp_ensure_capabilities({
 					},
 					-- Make the server aware of Neovim runtime files
 					workspace = {
-						library = { vim.env.VIMRUNTIME },
+						-- library = { vim.env.VIMRUNTIME },
 						-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-						-- library = vim.api.nvim_get_runtime_file("", true)
+						library = vim.api.nvim_get_runtime_file("", true)
 					},
 				})
 				client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
