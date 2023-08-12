@@ -30,6 +30,10 @@ return require("packer").startup(function(use)
 	use("ryanoasis/vim-devicons")
 	use("mhinz/vim-signify")
 	use("jreybert/vimagit")
+	use({
+		"lambdalisue/gin.vim",
+		requires = "vim-denops/denops.vim",
+	})
 
 	-- nvim plugins
 	use("NvChad/nvim-colorizer.lua")
