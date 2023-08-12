@@ -1,12 +1,12 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -28,13 +28,11 @@ return require("packer").startup(function(use)
 	-- vim plugins
 	-- use 'preservim/nerdcommenter'
 	-- use("preservim/nerdtree")
-	-- use 'tpope/vim-surround'
+	-- use 'preservim/tagbar'
 	use("ap/vim-css-color")
 	use("tpope/vim-commentary")
-	-- use 'pangloss/vim-javascript'
 	use("ryanoasis/vim-devicons")
 	use("terryma/vim-multiple-cursors")
-	-- use 'preservim/tagbar'
 
 	-- nvim plugins
 	use("nvim-lualine/lualine.nvim")
@@ -43,22 +41,12 @@ return require("packer").startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("mhartington/formatter.nvim")
 	use("neovim/nvim-lspconfig")
-	use({
-		"kylechui/nvim-surround",
-		tag = "*",
-	})
+	use("kylechui/nvim-surround")
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
 		run = "python3 -m chadtree deps",
 	})
-	-- use({
-	-- 	"chipsenkbeil/distant.nvim",
-	-- 	branch = "v0.3",
-	-- 	config = function()
-	-- 		require("distant"):setup()
-	-- 	end,
-	-- })
 
 	-- Treesitter
 	use({
@@ -83,7 +71,6 @@ return require("packer").startup(function(use)
 	use({ "ms-jpq/coq.thirdparty", branch = "3p" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
 	if packer_bootstrap then
 		require("packer").sync()
 	end
