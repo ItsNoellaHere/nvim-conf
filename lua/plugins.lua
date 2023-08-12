@@ -26,13 +26,13 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- vim plugins
-	-- use 'preservim/nerdcommenter'
 	-- use("preservim/nerdtree")
-	-- use 'preservim/tagbar'
 	use("ap/vim-css-color")
 	use("tpope/vim-commentary")
 	use("ryanoasis/vim-devicons")
 	use("terryma/vim-multiple-cursors")
+	use("mhinz/vim-signify")
+    use("jreybert/vimagit")
 
 	-- nvim plugins
 	use("nvim-lualine/lualine.nvim")
@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
 		branch = "chad",
 		run = "python3 -m chadtree deps",
 	})
+	use("jiaoshijie/undotree")
 
 	-- Treesitter
 	use({

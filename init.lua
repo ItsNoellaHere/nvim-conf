@@ -5,6 +5,12 @@ require('plugins')
 vim.opt.number = true
 vim.opt.cursorline = true
 
+-- fix tabs
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+
 -- enable scrolling
 vim.opt.backup = false
 vim.opt.scrolloff = 4
@@ -33,3 +39,4 @@ require('telescope-conf')
 require('formatter-conf')
 require('treesitter-conf')
 require('surround-conf')
+require('undotree-conf')

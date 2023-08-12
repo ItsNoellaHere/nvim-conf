@@ -23,6 +23,9 @@ imap('<A-F>', ':FormatWriteLock<cr>', true)
 -- CHADtree binds
 nmap("<leader>v", ":CHADopen<cr>", false)
 
+-- Undotreee binds
+vim.keymap.set('n', '<leader>u', require('undotree').toggle, { noremap = true, silent = true })
+
 -- Telescope binds
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
