@@ -44,6 +44,8 @@ return require("packer").startup(function(use)
 	use("mhartington/formatter.nvim")
 	use("neovim/nvim-lspconfig")
 	use("kylechui/nvim-surround")
+    use("jose-elias-alvarez/null-ls.nvim")
+    use("mfussenegger/nvim-lint")
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
