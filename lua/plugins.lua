@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
 	use("ryanoasis/vim-devicons")
 	use("mhinz/vim-signify")
 	use("jreybert/vimagit")
+    use("Krasjet/auto.pairs")
 	use({
 		"lambdalisue/gin.vim",
 		requires = "vim-denops/denops.vim",
@@ -41,12 +42,12 @@ return require("packer").startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("lewis6991/gitsigns.nvim")
 	use("kylechui/nvim-surround")
+	use("jiaoshijie/undotree")
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
 		run = "python3 -m chadtree deps",
 	})
-	use("jiaoshijie/undotree")
 
     -- LSP Helpers
 	use("nvim-lua/plenary.nvim")

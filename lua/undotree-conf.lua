@@ -1,3 +1,5 @@
+require('util')
+
 require("undotree").setup({
 	float_diff = true, -- using float window previews diff, set this `true` will disable layout option
 	layout = "left_bottom", -- "left_bottom", "left_left_bottom"
@@ -15,3 +17,5 @@ require("undotree").setup({
 		["q"] = "quit",
 	},
 })
+
+MapKeyN("<leader>u", require("undotree").toggle, true)

@@ -1,3 +1,4 @@
+require("util")
 local util = require("formatter.util")
 
 require("formatter").setup({
@@ -10,18 +11,18 @@ require("formatter").setup({
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
-        typescriptreact = {
-            require("formatter.filetypes.typescriptreact").prettier,
-        },
-        html = {
-            require("formatter.filetypes.html").prettier,
-        },
-        svelte = {
-            require("formatter.filetypes.svelte").prettier,
-        },
-        css = {
-            require("formatter.filetypes.css").prettier,
-        },
+		typescriptreact = {
+			require("formatter.filetypes.typescriptreact").prettier,
+		},
+		html = {
+			require("formatter.filetypes.html").prettier,
+		},
+		svelte = {
+			require("formatter.filetypes.svelte").prettier,
+		},
+		css = {
+			require("formatter.filetypes.css").prettier,
+		},
 
 		lua = {
 			require("formatter.filetypes.lua").stylua,
@@ -33,3 +34,8 @@ require("formatter").setup({
 		},
 	},
 })
+
+MapKeyN("<A-f>", ":FormatLock<cr>", true)
+MapKeyI("<A-f>", "<cmd>:FormatLock<cr>", true)
+MapKeyN("<A-F>", ":FormatWriteLock<cr>", true)
+MapKeyI("<A-F>", "<cmd>:FormatWriteLock<cr>", true)

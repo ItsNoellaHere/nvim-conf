@@ -1,3 +1,5 @@
+require('util')
+
 require("telescope").setup({
 	pickers = {
 		find_files = {
@@ -23,9 +25,8 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("project")
 
--- Set vim folding
-vim.cmd([[
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
-    set nofoldenable
-]])
+local builtin = require("telescope.builtin")
+MapKeyN("<leader>ff", builtin.find_files, false)
+MapKeyN("<leader>fg", builtin.live_grep, false)
+MapKeyN("<leader>ft", builtin.buffers, false)
+MapKeyN("<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", true)

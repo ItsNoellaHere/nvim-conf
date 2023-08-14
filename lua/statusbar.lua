@@ -1,5 +1,9 @@
 vim.opt.termguicolors = true
 
+local function treesitterInfo()
+    return require("nvim-treesitter").statusline(90)
+end
+
 require('lualine').setup({
   options = {
     icons_enabled = true,
@@ -40,7 +44,7 @@ require('lualine').setup({
     lualine_a = {'filename'},
     lualine_b = {},
     lualine_c = {'branch'},
-    lualine_x = {},
+    lualine_x = {treesitterInfo},
     lualine_y = {'filetype'},
     lualine_z = {}
   },
