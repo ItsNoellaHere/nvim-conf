@@ -40,18 +40,21 @@ return require("packer").startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("lewis6991/gitsigns.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("mhartington/formatter.nvim")
-	use("neovim/nvim-lspconfig")
 	use("kylechui/nvim-surround")
-    use("jose-elias-alvarez/null-ls.nvim")
-    use("mfussenegger/nvim-lint")
 	use({
 		"ms-jpq/chadtree",
 		branch = "chad",
 		run = "python3 -m chadtree deps",
 	})
 	use("jiaoshijie/undotree")
+
+    -- LSP Helpers
+	use("nvim-lua/plenary.nvim")
+    use("mfussenegger/nvim-lint")
+    use("jose-elias-alvarez/null-ls.nvim")
+	use("neovim/nvim-lspconfig")
+	use("mhartington/formatter.nvim")
+    use("ray-x/lsp_signature.nvim")
 
 	-- Treesitter
 	use({
