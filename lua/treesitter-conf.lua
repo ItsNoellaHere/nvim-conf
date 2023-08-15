@@ -7,4 +7,4 @@ require("nvim-treesitter.configs").setup({
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
-vim.cmd("autocmd BufWinEnter * silent! lua vim.api.nvim_input('zXzR')")
+vim.cmd("autocmd BufNewFile,BufRead * silent! lua vim.api.nvim_input('zXzR')")

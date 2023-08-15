@@ -1,18 +1,9 @@
 require('util')
 
-require("telescope").setup({
-	pickers = {
-		find_files = {
-			theme = "ivy",
-		},
-		live_grep = {
-			theme = "ivy",
-		},
-	},
+require("telescope").setup({	
 	extensions = {
 		project = {
-			hidden_files = true, -- default: false
-			theme = "ivy",
+			hidden_files = false, -- default: false
 			order_by = "asc",
 			search_by = "title",
 			sync_with_nvim_tree = true, -- default false
