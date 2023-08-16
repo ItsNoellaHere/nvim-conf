@@ -87,6 +87,10 @@ return require("packer").startup(function(use)
 	})
 	use("nvim-telescope/telescope-project.nvim")
 
+	-- Mason
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+
 	-- coq
 	use({ "ms-jpq/coq_nvim", branch = "coq" })
 	use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
