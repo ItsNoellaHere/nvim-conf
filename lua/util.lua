@@ -1,26 +1,35 @@
 ---@param mode string
 ---@param shortcut string
 ---@param command string | function
----@param silent boolean
+---@param opts table | nil
 ---@return nil
-function MapKey(mode, shortcut, command, silent)
-	vim.keymap.set(mode, shortcut, command, { noremap = true, silent = silent })
+function MapKey(mode, shortcut, command, opts)
+    local opts = opts or {noremap = true}
+	vim.keymap.set(mode, shortcut, command, opts)
 end
 
 ---@param shortcut string
 ---@param command string | function
----@param silent boolean
+---@param silent boolean | nil
 ---@return nil
 function MapKeyN(shortcut, command, silent)
-	MapKey("n", shortcut, command, silent)
+	MapKey("n", shortcut, command, { noremap = true, silent = silent })
 end
 
 ---@param shortcut string
 ---@param command string | function
----@param silent boolean
+---@param silent boolean | nil
+---@return nil
+function MapKeyV(shortcut, command, silent)
+	MapKey("v", shortcut, command, { noremap = true, silent = silent })
+end
+
+---@param shortcut string
+---@param command string | function
+---@param silent boolean | nil
 ---@return nil
 function MapKeyI(shortcut, command, silent)
-	MapKey("i", shortcut, command, silent)
+	MapKey("i", shortcut, command, { noremap = true, silent = silent })
 end
 
 ---@param str1 string
@@ -38,7 +47,6 @@ function StringWrap(str, len, delimiter, ret)
 	if not ret then
 		ret = {}
 	end
-    print(str)
     local i, j = string.find(str, delimiter, len) 
 	if string.len(str) <= len or not i or not j then
 		table.insert(ret, str)

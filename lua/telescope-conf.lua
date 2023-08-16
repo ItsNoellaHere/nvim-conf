@@ -18,6 +18,7 @@ require("telescope").load_extension("project")
 
 local builtin = require("telescope.builtin")
 MapKeyN("<leader>ff", builtin.find_files, false)
+MapKeyN("<leader>ft", builtin.git_files, false)
 MapKeyN("<leader>fg", builtin.live_grep, false)
 MapKeyN("<leader>ft", builtin.buffers, false)
 MapKeyN("<leader>fp", ":lua require'telescope'.extensions.project.project{}<CR>", true)
