@@ -1,6 +1,8 @@
 vim.opt.compatible = false
 require("plugins")
 
+vim.g.mapleader = ";"
+
 -- enable cursor highlighting and line numbers
 vim.opt.number = true
 vim.opt.cursorline = true
@@ -8,6 +10,7 @@ vim.opt.cursorline = true
 -- fix tabs
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 
@@ -16,19 +19,20 @@ vim.opt.backup = false
 vim.opt.scrolloff = 4
 vim.opt.wrap = false
 
--- Ignore case in search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Enable wild menu
-vim.opt.wildmenu = true
-vim.opt.wildmode = "list:longest"
-vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsox"
-
+-- set fold
 vim.opt.foldcolumn = "2"
 vim.opt.conceallevel = 1
 
-vim.g.loaded_perl_provider = 0
+-- enable undo file
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+-- other
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
+vim.opt.incsearch = true
 
 require("theme")
 require("statusbar")
