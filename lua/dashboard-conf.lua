@@ -31,29 +31,36 @@ local dashboard = {
 	config = {
 		week_header = {
 			enable = true,
+            append = {"", ""},
 		},
 		center = {
 			{
 				icon = "",
-				desc = "  List Projects",
+				desc = " List Projects",
 				key = "p",
 				action = "Telescope project",
 			},
 			{
 				icon = "",
-				desc = "  File Browser",
+				desc = " File Browser",
 				key = "f",
 				action = "Telescope find_files",
 			},
 			{
-				icon = "󱎸",
-				desc = "  Search for Text",
+				icon = "󰊢",
+				desc = " Git Files",
 				key = "g",
+				action = "Telescope git_files",
+			},
+			{
+				icon = "󱎸",
+				desc = " Search for Text",
+				key = "s",
 				action = "Telescope live_grep",
 			},
 			{
 				icon = "",
-				desc = "  List Recent Files",
+				desc = " List Recent Files",
 				key = "h",
 				action = "Telescope oldfiles",
 			},
