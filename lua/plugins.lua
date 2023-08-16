@@ -28,7 +28,6 @@ return require("packer").startup(function(use)
 	-- vim plugins
 	use("tpope/vim-commentary")
 	use("mhinz/vim-signify")
-	use("jreybert/vimagit")
 	use("Krasjet/auto.pairs")
 	use({
 		"lambdalisue/gin.vim",
@@ -42,8 +41,12 @@ return require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("kylechui/nvim-surround")
 	use("jiaoshijie/undotree")
-    use("nvim-tree/nvim-web-devicons")
-    use("itsnoellahere/qotd.nvim")
+	use("nvim-tree/nvim-web-devicons")
+	use("itsnoellahere/qotd.nvim")
+	use({
+		"NeogitOrg/neogit",
+		requires = "sindrets/diffview.nvim",
+	})
 	use({
 		"glepnir/dashboard-nvim",
 		event = "VimEnter",
