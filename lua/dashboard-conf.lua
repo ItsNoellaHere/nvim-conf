@@ -6,10 +6,23 @@ vim.cmd("hi DashboardKey guifg=gray")
 vim.cmd("hi DashboardHeader guifg=MediumSpringGreen")
 vim.cmd("hi DashboardFooter guifg=SteelBlue")
 
+local function getNumPackages()
+    local _, lazy = pcall(require, 'lazy')
+
+	return "Plugins: " .. lazy.stats().loaded .. " loaded / " .. lazy.stats().count .. " installed"
+end
+
+local function getStartupTime()
+    local _, lazy = pcall(require, 'lazy')
+    return 'Startuptime: ' .. lazy.stats().startuptime .. ' ms'
+end
+
 local function appendQOTD(obj)
 	local ret = DeepCopy(obj)
+	local qotd = require("qotd").getQuote()
+	local width = vim.api.nvim_win_get_width(0) * 2 / 3
 
-	local qotdArr = StringWrap(require("qotd").getQuote(), vim.api.nvim_win_get_width(0) * 2 / 3, " ")
+	local qotdArr = StringWrap(qotd, width, " ")
 
 	for _, part in ipairs(qotdArr) do
 		table.insert(ret, part)
@@ -31,7 +44,7 @@ local dashboard = {
 	config = {
 		week_header = {
 			enable = true,
-            append = {"", ""},
+			append = { "", "" },
 		},
 		center = {
 			{
@@ -67,7 +80,8 @@ local dashboard = {
 		},
 		footer = appendQOTD({
 			"",
-			"neovim loaded " .. #vim.tbl_keys(packer_plugins) .. " plugins",
+            getStartupTime(),
+			getNumPackages(),
 			"",
 		}),
 	},

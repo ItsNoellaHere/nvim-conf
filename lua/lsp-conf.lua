@@ -1,7 +1,7 @@
 require("util")
 
 local lsp = require("lspconfig")
-local coq = require("coq")
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("lsp_signature").setup({})
 
@@ -29,6 +29,8 @@ require("mason-lspconfig").setup({
 
 require("mason-lspconfig").setup_handlers({
 	function(server_name)
-        lsp[server_name].setup(coq.lsp_ensure_capabilities({}))
+        lsp[server_name].setup({
+            capablilites = lsp_capabilities,
+        })
 	end,
 })

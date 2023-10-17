@@ -1,5 +1,13 @@
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "c", "javascript", "typescript", "html", "css", "lua", "bash" },
+	ensure_installed = {
+		"c",
+		"javascript",
+		"typescript",
+		"html",
+		"css",
+		"lua",
+		"bash",
+	},
 	highlight = { enable = true },
 })
 
@@ -7,4 +15,6 @@ require("nvim-treesitter.configs").setup({
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
-vim.cmd("autocmd BufNewFile,BufRead * silent! lua vim.api.nvim_input('zXzR')")
+vim.cmd([[
+    autocmd BufNewFile,BufRead * silent! lua vim.api.nvim_input('zXzR')
+]])

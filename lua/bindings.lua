@@ -1,7 +1,7 @@
 require("util")
 
 -- CHADtree binds
-MapKeyN("<leader>v", vim.cmd.CHADopen, true)
+MapKeyN("<leader>vv", vim.cmd.CHADopen, true)
 
 MapKeyN("<leader>T", ":tabnew<cr>:term<cr>i", true)
 MapKeyN("<Leader>fe", "zXzR", false)
@@ -12,6 +12,9 @@ MapKeyV("J", ":m '>+1<CR>gv=gv")
 MapKeyV("K", ":m '<-2<CR>gv=gv")
 
 MapKey("x", "<leader>p", "\"_dP")
+
+MapKeyN("<leader>P", "\"+p")
+MapKeyV("<leader>P", "\"+p")
 
 MapKeyN("<leader>y", "\"+y")
 MapKeyV("<leader>y", "\"+y")

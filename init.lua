@@ -1,47 +1,45 @@
 vim.opt.compatible = false
-require("plugins")
-
 vim.g.mapleader = ";"
 
--- enable cursor highlighting and line numbers
-vim.opt.number = true
-vim.opt.cursorline = true
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
--- fix tabs
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.autoindent = true
-
--- enable scrolling
-vim.opt.backup = false
-vim.opt.scrolloff = 4
-vim.opt.wrap = false
-
--- set fold
-vim.opt.foldcolumn = "2"
-vim.opt.conceallevel = 1
-
--- enable undo file
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
--- other
-vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
-vim.opt.incsearch = true
+require("lazy").setup("plugins", {
+	checker = {
+		-- automatically check for plugin updates
+		enabled = false,
+		concurrency = nil,
+		notify = true,
+		frequency = 3600,
+	},
+	change_detection = {
+		-- automatically check for config file changes and reload the ui
+		enabled = true,
+		notify = true,
+	},
+})
 
 require("theme")
+require("opts")
 require("statusbar")
 require("bindings")
 require("clipboard")
-require("coq-conf")
+require("cmp-conf")
 require("lsp-conf")
 require("telescope-conf")
 require("formatter-conf")
 require("treesitter-conf")
 require("surround-conf")
 require("undotree-conf")
+require("comment-conf")
+require("neogit-conf")
