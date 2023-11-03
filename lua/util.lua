@@ -4,7 +4,7 @@
 ---@param opts table | nil
 ---@return nil
 function MapKey(mode, shortcut, command, opts)
-    local opts = opts or {noremap = true}
+	local opts = opts or { noremap = true }
 	vim.keymap.set(mode, shortcut, command, opts)
 end
 
@@ -47,13 +47,13 @@ function StringWrap(str, len, delimiter, ret)
 	if not ret then
 		ret = {}
 	end
-    local i, j = string.find(str, delimiter, len) 
+	local i, j = string.find(str, delimiter, len)
 	if string.len(str) <= len or not i or not j then
 		table.insert(ret, str)
 		return ret
 	else
-		table.insert(ret, string.sub(str, 1, i-1))
-		return StringWrap(string.sub(str, j+1), len, delimiter, ret)
+		table.insert(ret, string.sub(str, 1, i - 1))
+		return StringWrap(string.sub(str, j + 1), len, delimiter, ret)
 	end
 end
 
@@ -76,4 +76,14 @@ function DeepCopy(obj, seen)
 		res[DeepCopy(k, s)] = DeepCopy(v, s)
 	end
 	return setmetatable(res, getmetatable(obj))
+end
+
+---@return boolean
+function IsGitRepo()
+	local path = vim.loop.cwd() .. "/.git"
+	local ok, _ = vim.loop.fs_stat(path)
+	if ok then
+		return true
+	end
+	return false
 end

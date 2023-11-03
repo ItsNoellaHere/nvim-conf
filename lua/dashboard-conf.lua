@@ -7,14 +7,14 @@ vim.cmd("hi DashboardHeader guifg=MediumSpringGreen")
 vim.cmd("hi DashboardFooter guifg=SteelBlue")
 
 local function getNumPackages()
-    local _, lazy = pcall(require, 'lazy')
+	local _, lazy = pcall(require, "lazy")
 
 	return "Plugins: " .. lazy.stats().loaded .. " loaded / " .. lazy.stats().count .. " installed"
 end
 
 local function getStartupTime()
-    local _, lazy = pcall(require, 'lazy')
-    return 'Startuptime: ' .. lazy.stats().startuptime .. ' ms'
+	local _, lazy = pcall(require, "lazy")
+	return "Startuptime: " .. lazy.stats().startuptime .. " ms"
 end
 
 local function appendQOTD(obj)
@@ -53,38 +53,43 @@ local dashboard = {
 				key = "p",
 				action = "Telescope project",
 			},
-			{
-				icon = "",
-				desc = " File Browser",
-				key = "f",
-				action = "Telescope find_files",
-			},
-			{
-				icon = "󰊢",
-				desc = " Git Files",
-				key = "g",
-				action = "Telescope git_files",
-			},
-			{
-				icon = "󱎸",
-				desc = " Search for Text",
-				key = "s",
-				action = "Telescope live_grep",
-			},
-			{
-				icon = "",
-				desc = " List Recent Files",
-				key = "h",
-				action = "Telescope oldfiles",
-			},
 		},
 		footer = appendQOTD({
 			"",
-            getStartupTime(),
+			getStartupTime(),
 			getNumPackages(),
 			"",
 		}),
 	},
 }
+
+if IsGitRepo() then
+	table.insert(dashboard.config.center, {
+		icon = "",
+		desc = " File Browser",
+		key = "f",
+		action = "Telescope git_files",
+	})
+else
+	table.insert(dashboard.config.center, {
+		icon = "",
+		desc = " File Browser",
+		key = "f",
+		action = "Telescope find_files",
+	})
+end
+
+table.insert(dashboard.config.center, {
+	icon = "",
+	desc = " List Recent Files",
+	key = "h",
+	action = "Telescope oldfiles",
+})
+table.insert(dashboard.config.center, {
+	icon = "󱎸",
+	desc = " Search for Text",
+	key = "s",
+	action = "Telescope live_grep",
+})
 
 return dashboard
