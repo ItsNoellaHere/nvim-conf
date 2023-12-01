@@ -2,4 +2,4 @@
 
 Only includes bootsrapping for packer
 
-I KNOW USE LAZYNVIM
+I NOW USE LAZY-NVIM
