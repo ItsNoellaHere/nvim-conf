@@ -14,7 +14,7 @@ vim.opt.autoindent = true
 
 -- enable scrolling
 vim.opt.backup = false
-vim.opt.scrolloff = 4
+vim.opt.scrolloff = 8
 vim.opt.wrap = false
 
 -- set fold
@@ -24,7 +24,7 @@ vim.opt.conceallevel = 1
 -- enable undo file
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
 vim.opt.undofile = true
 
 -- other
