@@ -1,6 +1,8 @@
 require("util")
 
-require("undotree").setup({
+MapKeyN("<leader>u", require("undotree").toggle, true)
+
+return {
 	float_diff = true, -- using float window previews diff, set this `true` will disable layout option
 	layout = "left_bottom", -- "left_bottom", "left_left_bottom"
 	ignore_filetype = {
@@ -23,6 +25,4 @@ require("undotree").setup({
 		["p"] = "enter_diffbuf",
 		["q"] = "quit",
 	},
-})
-
-MapKeyN("<leader>u", require("undotree").toggle, true)
+}

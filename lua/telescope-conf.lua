@@ -1,6 +1,19 @@
 require("util")
 
-require("telescope").setup({
+local builtin = require("telescope.builtin")
+MapKeyN("<leader>ff", function()
+    if IsGitRepo() then
+        builtin.git_files()
+    else
+        builtin.find_files()
+    end
+end, false)
+MapKeyN("<leader>ft", builtin.git_files, false)
+MapKeyN("<leader>fg", builtin.live_grep, false)
+MapKeyN("<leader>ft", builtin.buffers, false)
+MapKeyN("<leader>fp", ":Telescope project<cr>", true)
+
+return {
 	extensions = {
 		project = {
 			hidden_files = false, -- default: false
@@ -16,22 +29,8 @@ require("telescope").setup({
 			-- the default case_mode is "smart_case"
 		},
 	},
-})
+}
 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("project")
 
-local builtin = require("telescope.builtin")
-MapKeyN("<leader>ff", function()
-	if IsGitRepo() then
-		builtin.git_files()
-	else
-		builtin.find_files()
-	end
-end, false)
-MapKeyN("<leader>ft", builtin.git_files, false)
-MapKeyN("<leader>fg", builtin.live_grep, false)
-MapKeyN("<leader>ft", builtin.buffers, false)
-MapKeyN("<leader>fp", ":Telescope project<cr>", true)

@@ -29,17 +29,10 @@ require("lazy").setup("plugins", {
 	},
 })
 
+require("lsp-conf").setup()
+
 require("theme")
 require("opts")
 require("statusbar")
 require("bindings")
 require("clipboard")
-require("cmp-conf")
-require("lsp-conf")
-require("telescope-conf")
-require("formatter-conf")
-require("treesitter-conf")
-require("surround-conf")
-require("undotree-conf")
-require("comment-conf")
-require("neogit-conf")

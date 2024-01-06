@@ -86,4 +86,17 @@ function IsGitRepo()
 		return true
 	end
 	return false
+
+    -- local output = vim.fn.system({"git", "rev-parse", "--is-inside-work-tree"})
+    --
+    -- if Trim(output) == "true" then 
+    --     return true
+    -- end
+    -- return false
+end
+
+---@param s string # string to be trimed
+---@return string # string without padding whitespace
+function Trim(s)
+   return s:match( "^%s*(.-)%s*$" )
 end

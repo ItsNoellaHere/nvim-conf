@@ -3,7 +3,7 @@ require("util")
 -- CHADtree binds
 MapKeyN("<leader>vv", vim.cmd.CHADopen, true)
 
-MapKeyN("<leader>T", ":sp<cr>:wincmd w<cr>:term<cr>i", true)
+MapKeyN("<leader>T", ":sp<cr>:wincmd w<cr>:res -10<cr>:term<cr>i", true)
 MapKeyN("<Leader>fe", "zXzR", false)
 
 MapKeyN("<leader>ss", vim.cmd.noh, false)

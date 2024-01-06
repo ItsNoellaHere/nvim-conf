@@ -1,7 +1,11 @@
 require("util")
-local util = require("formatter.util")
 
-require("formatter").setup({
+MapKeyN("<A-f>", ":FormatLock<cr>", true)
+MapKeyI("<A-f>", "<cmd>:FormatLock<cr>", true)
+MapKeyN("<A-F>", ":FormatWriteLock<cr>", true)
+MapKeyI("<A-F>", "<cmd>:FormatWriteLock<cr>", true)
+
+return {
 	-- Enable or disable logging
 	logging = true,
 	log_level = vim.log.levels.WARN,
@@ -36,9 +40,4 @@ require("formatter").setup({
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},
 	},
-})
-
-MapKeyN("<A-f>", ":FormatLock<cr>", true)
-MapKeyI("<A-f>", "<cmd>:FormatLock<cr>", true)
-MapKeyN("<A-F>", ":FormatWriteLock<cr>", true)
-MapKeyI("<A-F>", "<cmd>:FormatWriteLock<cr>", true)
+}
