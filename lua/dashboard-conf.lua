@@ -68,14 +68,14 @@ if IsGitRepo() then
 		icon = "",
 		desc = " File Browser",
 		key = "f",
-		action = "Telescope git_files",
+		action = require("telescope.builtin").git_files
 	})
 else
 	table.insert(dashboard.config.center, {
 		icon = "",
 		desc = " File Browser",
 		key = "f",
-		action = "Telescope find_files",
+		action = require("telescope.builtin").find_files
 	})
 end
 
@@ -83,13 +83,13 @@ table.insert(dashboard.config.center, {
 	icon = "",
 	desc = " List Recent Files",
 	key = "h",
-	action = "Telescope oldfiles",
+	action = require("telescope.builtin").oldfiles,
 })
 table.insert(dashboard.config.center, {
 	icon = "󱎸",
 	desc = " Search for Text",
 	key = "s",
-	action = "Telescope live_grep",
+	action = require("telescope.builtin").live_grep,
 })
 
 return dashboard
