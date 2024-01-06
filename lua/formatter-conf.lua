@@ -1,10 +1,3 @@
-require("util")
-
-MapKeyN("<A-f>", ":FormatLock<cr>", true)
-MapKeyI("<A-f>", "<cmd>:FormatLock<cr>", true)
-MapKeyN("<A-F>", ":FormatWriteLock<cr>", true)
-MapKeyI("<A-F>", "<cmd>:FormatWriteLock<cr>", true)
-
 return {
 	-- Enable or disable logging
 	logging = true,

@@ -14,20 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
-	checker = {
-		-- automatically check for plugin updates
-		enabled = false,
-		concurrency = nil,
-		notify = true,
-		frequency = 3600,
-	},
-	change_detection = {
-		-- automatically check for config file changes and reload the ui
-		enabled = true,
-		notify = true,
-	},
-})
+require("lazy").setup("plugins")
 
 require("lsp-conf").setup()
 

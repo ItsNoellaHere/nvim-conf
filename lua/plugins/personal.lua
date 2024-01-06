@@ -1,0 +1,3 @@
+return {
+	"itsnoellahere/qotd.nvim",
+}
