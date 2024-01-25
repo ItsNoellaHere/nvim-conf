@@ -26,21 +26,22 @@ return {
 				"<leader>ff",
 				function()
 					if IsGitRepo() then
-						require("telescope.builtin").git_files()
+						return "<cmd>Telescope git_files<cr>"
 					else
-						require("telescope.builtin").find_files()
+                        return "<cmd>Telescope find_files<cr>"
 					end
 				end,
 				"Fuzzy Find Files",
 			},
-			{ "<leader>fg", require("telescope.builtin").live_grep, "Live Grep all Files" },
-			{ "<leader>fb", require("telescope.builtin").buffers, "Find Buffers" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", "Live Grep all Files" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", "Find Buffers" },
 			{ "<leader>fp", "<cmd>Telescope project<cr>", "Search Projects" },
 		},
 	},
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
+        dependencies = { "nvim-telescope/telescope.nvim" },
 	},
 	"nvim-telescope/telescope-project.nvim",
 }
