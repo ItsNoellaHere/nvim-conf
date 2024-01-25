@@ -22,13 +22,13 @@ return {
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{
+{
 				"<leader>ff",
 				function()
 					if IsGitRepo() then
-						return "<cmd>Telescope git_files<cr>"
+						require("telescope.builtin").git_files()
 					else
-                        return "<cmd>Telescope find_files<cr>"
+						require("telescope.builtin").find_files()
 					end
 				end,
 				"Fuzzy Find Files",

@@ -1,4 +1,5 @@
 vim.opt.termguicolors = true
+vim.opt.mouse = ""
 
 -- enable cursor highlighting and line numbers
 vim.opt.number = true
