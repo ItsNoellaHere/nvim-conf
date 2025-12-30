@@ -1,5 +1,11 @@
 return {
 	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+		dependencies = { "nvim-telescope/telescope.nvim" },
+	},
+	"nvim-telescope/telescope-project.nvim",
+	{
 		"nvim-telescope/telescope.nvim",
 		config = function()
 			require("telescope").setup({
@@ -17,12 +23,12 @@ return {
 				},
 			})
 
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("project")
+			-- require("telescope").load_extension("fzf")
+			-- require("telescope").load_extension("project")
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-{
+			{
 				"<leader>ff",
 				function()
 					if IsGitRepo() then
@@ -38,10 +44,4 @@ return {
 			{ "<leader>fp", "<cmd>Telescope project<cr>", "Search Projects" },
 		},
 	},
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "make",
-        dependencies = { "nvim-telescope/telescope.nvim" },
-	},
-	"nvim-telescope/telescope-project.nvim",
 }
